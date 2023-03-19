@@ -9,3 +9,5 @@ For example:
 I can periodically upload information about the weather in AI, and at one time ask it.
 Ask to improve photos or generate.
 Etc.
+![image](https://user-images.githubusercontent.com/19514420/226196438-7996b254-dd3f-47d7-adb3-741e9bbd8f0e.png)
+![image](https://user-images.githubusercontent.com/19514420/226196446-4e772097-2e96-4bf9-9ca3-4159551fc6d0.png)
