@@ -1,6 +1,9 @@
 package main
 
-import "MyTelegramAssistentAI/src/tgbot"
+import (
+	"MyTelegramAssistentAI/src/layers/tgbot"
+	"os"
+)
 
 // "MyTelegramAssistentAI/src/models"
 // "MyTelegramAssistentAI/src/services/dataRepository"
@@ -9,5 +12,10 @@ import "MyTelegramAssistentAI/src/tgbot"
 // "fmt"
 
 func main() {
+
+	e := os.Remove("dbfile.db")
+	if e != nil {
+		panic(e)
+	}
 	tgbot.Start()
 }

@@ -3,6 +3,7 @@ package config
 import (
 	"bufio"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
 )
@@ -26,4 +27,13 @@ func GetValue(key string) string {
 
 	readFile.Close()
 	return value
+}
+
+func GetGptSystem() string {
+	readFile, err := ioutil.ReadFile("GptSystem.txt")
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	return string(readFile)
 }

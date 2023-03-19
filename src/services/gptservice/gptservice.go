@@ -27,7 +27,7 @@ func open(gpt *ChatGPT) {
 	gpt.client = openai.NewClient(config.GetValue("OPENAI_TOKEN"))
 }
 
-func (gpt *ChatGPT) Send(conversation []openai.ChatCompletionMessage) string {
+func (gpt *ChatGPT) Send(conversation []openai.ChatCompletionMessage) (*string, error) {
 
 	resp, err := gpt.client.CreateChatCompletion(
 		context.Background(),
@@ -38,7 +38,7 @@ func (gpt *ChatGPT) Send(conversation []openai.ChatCompletionMessage) string {
 	)
 
 	if err != nil {
-		return err.Error()
+		return nil, err
 	}
-	return resp.Choices[0].Message.Content
+	return &(resp.Choices[0].Message.Content), nil
 }

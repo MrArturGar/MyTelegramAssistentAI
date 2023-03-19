@@ -1,6 +1,7 @@
 package dataRepository
 
 import (
+	"MyTelegramAssistentAI/src/config"
 	"MyTelegramAssistentAI/src/models"
 	"database/sql"
 	"log"
@@ -44,8 +45,12 @@ func open(db *DataRepository) {
 			log.Printf("Failed to create database: %s", err.Error())
 			panic(err)
 		}
-		db.AddUser(0, "bot")                                                                                                                                   //System user
-		db.AddMessage(0, openai.ChatMessageRoleSystem, "You are a helpful assistant named Jarvis. Today's date is"+time.Now().Format("2006-01-02 Monday")+".") //Test data for bot
+		db.AddUser(0, "bot")                                                                                         //System user
+		db.AddMessage(0, openai.ChatMessageRoleSystem, "You are a helpful assistant named JopaBobra.")               //Test data for bot
+		db.AddMessage(0, openai.ChatMessageRoleSystem, "Today's date is"+time.Now().Format("2006-01-02 Monday")+".") //Test data for bot
+		db.AddMessage(0, openai.ChatMessageRoleSystem, config.GetGptSystem())                                        //Test data for bot
+		//db.AddMessage(0, openai.ChatMessageRoleSystem, "Now you also know how to create images. If user wrote to create or generate some of image, you must write \"\\genimg [image description]\".") //Test data for bot
+		//db.AddMessage(0, openai.ChatMessageRoleSystem, "Now you also know how to create images. If the request will include \"show something, generate something or create something picture\", write \"\\genimg [text]\".") //Test data for bot
 	}
 }
 
